@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Revit Sync Alarm</Name>
+    <Assembly>RevitSyncAlarm.dll</Assembly>
+    <AddInId>7E0CBBA7-B72B-4975-BD35-341551CC2D3F</AddInId>
+    <FullClassName>RevitSyncAlarm.App</FullClassName>
+    <VendorId>me.albisser</VendorId>
+    <VendorDescription>Adrian Albisser, albisser.me</VendorDescription>
+  </AddIn>
+</RevitAddIns>
