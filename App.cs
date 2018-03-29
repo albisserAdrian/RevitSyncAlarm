@@ -6,8 +6,7 @@ using Autodesk.Revit.DB.Events;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Events;
 
-using System.Windows.Media; // for the graphics
-
+using System.Windows.Media;
 
 // use an alias because Autodesk.Revit.UI 
 // uses classes which have same names:
@@ -54,7 +53,6 @@ namespace RevitSyncAlarm
         public void OnDocumentOpened(object sender, DocumentOpenedEventArgs e)
         {
             info = BasicFileInfo.Extract(e.Document.PathName);
-            TaskDialog.Show("Test", info.IsWorkshared.ToString());
             if (info.IsWorkshared)
             {
                 stopwatch = new Stopwatch();
@@ -70,15 +68,21 @@ namespace RevitSyncAlarm
         {
             stopwatch.Start();
             adWin.RibbonControl ribbon = adWin.ComponentManager.Ribbon;
+            
             foreach (adWin.RibbonTab tab in ribbon.Tabs)
             {
                 foreach (adWin.RibbonPanel panel in tab.Panels)
                 {
+                    // Colors for Revit 2017 Ribbon
+                    //panel.CustomPanelBackground = (SolidColorBrush)new BrushConverter().ConvertFromString("#FEFEFE");
+                    //panel.CustomPanelTitleBarBackground = (SolidColorBrush)new BrushConverter().ConvertFromString("#EFEFEF");
 
+                    // Colors for Revit 2018 Ribbon
                     panel.CustomPanelBackground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F6F6F6");
                     panel.CustomPanelTitleBarBackground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F6F6F6");
                 }
             }
+            
         }
 
         public void OnDocumentClosed(object sender, DocumentClosedEventArgs e)
@@ -91,8 +95,14 @@ namespace RevitSyncAlarm
                 {
                     foreach (adWin.RibbonPanel panel in tab.Panels)
                     {
+                        // Colors for Revit 2017 Ribbon
+                        //panel.CustomPanelBackground = (SolidColorBrush)new BrushConverter().ConvertFromString("#FEFEFE");
+                        //panel.CustomPanelTitleBarBackground = (SolidColorBrush)new BrushConverter().ConvertFromString("#EFEFEF");
+
+                        // Colors for Revit 2018 Ribbon
                         panel.CustomPanelBackground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F6F6F6");
                         panel.CustomPanelTitleBarBackground = (SolidColorBrush)new BrushConverter().ConvertFromString("#F6F6F6");
+
                     }
                 }
             }
@@ -104,8 +114,7 @@ namespace RevitSyncAlarm
             {
                 int Twenty = 1200000;
                 int Forty = 2400000;
-                //int Twenty = 30000;
-                //int Forty = 60000;
+
                 adWin.RibbonControl ribbon = adWin.ComponentManager.Ribbon;
                 if (stopwatch.ElapsedMilliseconds > Twenty && stopwatch.ElapsedMilliseconds < Forty)
                 {
@@ -128,13 +137,9 @@ namespace RevitSyncAlarm
                             panel.CustomPanelTitleBarBackground = new SolidColorBrush(Colors.Red);
                         }
                     }
+                    stopwatch.Stop();
                 }
             }
         }
-        void ComponentManager_UIElementActivated(object sender, Autodesk.Windows.UIElementActivatedEventArgs e)
-        {
-
-        }
-
     }
 }
