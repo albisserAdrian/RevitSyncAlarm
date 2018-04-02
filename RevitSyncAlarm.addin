@@ -6,6 +6,6 @@
     <AddInId>7E0CBBA7-B72B-4975-BD35-341551CC2D3F</AddInId>
     <FullClassName>RevitSyncAlarm.App</FullClassName>
     <VendorId>me.albisser</VendorId>
-    <VendorDescription>Adrian Albisser, albisser.me</VendorDescription>
+    <VendorDescription>Adrian Albisser, https://github.com/albisserAdrian</VendorDescription>
   </AddIn>
 </RevitAddIns>

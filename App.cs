@@ -10,7 +10,6 @@ using System.Windows.Media;
 
 // use an alias because Autodesk.Revit.UI 
 // uses classes which have same names:
-
 using adWin = Autodesk.Windows;
 
 namespace RevitSyncAlarm

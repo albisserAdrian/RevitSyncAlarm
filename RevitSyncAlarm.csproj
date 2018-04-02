@@ -65,9 +65,12 @@
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="RevitSyncAlarm.addin" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)RevitSyncAlarm.addin" "C:\ProgramData\Autodesk\Revit\Addins\2018"
-copy "$(TargetPath)" "C:\ProgramData\Autodesk\Revit\Addins\2018"</PostBuildEvent>
+    <PostBuildEvent>copy "$(ProjectDir)RevitSyncAlarm.addin" "$(AppData)\Autodesk\REVIT\Addins\2018"
+copy "$(TargetPath)" "$(AppData)\Autodesk\REVIT\Addins\2018"</PostBuildEvent>
   </PropertyGroup>
 </Project>
