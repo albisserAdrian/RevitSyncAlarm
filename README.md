@@ -1,5 +1,5 @@
 # RevitSyncAlarm
-A simple nondisruptive but very noticeable sync alarm warning for revit.
+A simple nondisruptive but very noticeable sync alarm warning Add-in for revit.
 
 ![image](https://user-images.githubusercontent.com/8847598/38228875-22ccc66c-3749-11e8-911b-fb4eb44d3f73.png)
 
